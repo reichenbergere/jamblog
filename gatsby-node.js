@@ -10,8 +10,13 @@ exports.createPages = ({graphql, actions}) => {
                 allContentfulPost {
                     edges {
                         node {
-                            id
+                            contentful_id
                             title
+                            comments {
+                                comments {
+                                    comment_text
+                                }
+                            }
                             content{
                                 childContentfulRichText{
                                     html
@@ -27,15 +32,15 @@ exports.createPages = ({graphql, actions}) => {
         const posts = result.data.allContentfulPost.edges;
         console.log(posts);
         posts.forEach((post, index) => {
-            console.log("ID", post.id);
+            console.log("ID", post.contentful_id);
             const previous = index === posts.length - 1 ? null : posts[index + 1].node;
             const next = index === 0 ? null : posts[index - 1].node;
 
             createPage({
-                path: post.node.id,
+                path: post.node.contentful_id,
                 component: blogPost,
                 context: { 
-                    slug: post.node.id,
+                    slug: post.node.contentful_id,
                     previous,
                     next,
                 }

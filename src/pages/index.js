@@ -14,7 +14,7 @@ class IndexPage extends React.Component {
         <h1>Test</h1>
         {posts.map(({node}) => {
           return (
-            <Link to={node.id} key={node.id}>
+            <Link to={node.contentful_id} key={node.contentful_id}>
               <h3>{node.title}</h3>
             </Link>
           )
@@ -31,7 +31,7 @@ export const pageQuery = graphql`
       allContentfulPost {
           edges {
               node {
-                  id
+                  contentful_id
                   title
                   content{
                       childContentfulRichText{
