@@ -15,6 +15,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `@contentful/gatsby-transformer-contentful-richtext`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -26,6 +27,13 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `e2o6u0moecci`,
+        accessToken: `OFhLhvvbsGbGDltnxdLwZ8PksrEE4qBMwkkNcZKWuRQ`
+      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
