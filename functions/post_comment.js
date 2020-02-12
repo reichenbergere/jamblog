@@ -52,7 +52,17 @@ exports.handler = function(event, context, callback) {
                 comments: postComments
             }
             console.log("Updating entry", entry);
-            entry.update();
+            return entry.update();
+        });
+
+        await client.getSpace('e2o6u0moecci')
+        .then(space => {
+            return space.getEnvironment('master')
+        })
+        .then(environment => {
+            return environment.getEntry(data.id)
+        })
+        .then(entry => {
             return entry.publish();
         });
 
