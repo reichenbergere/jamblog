@@ -9,7 +9,7 @@ class PostTemplate extends React.Component {
         e.stopPropagation();
         e.preventDefault();
 
-        fetch('http://localhost:9000/.netlify/functions/post_comment', {
+        fetch('/.netlify/functions/post_comment', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
