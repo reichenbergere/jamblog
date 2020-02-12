@@ -20,7 +20,7 @@ class PostTemplate extends React.Component {
                 comment_text: document.getElementById("comment_text").value
             })
         })
-        document.getElementById("contentful_id").value = "";
+        document.getElementById("comment_text").value = "";
     }
 
     render() {
