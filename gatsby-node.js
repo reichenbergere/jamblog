@@ -30,9 +30,8 @@ exports.createPages = ({graphql, actions}) => {
         `
     ).then(result => {
         const posts = result.data.allContentfulPost.edges;
-        console.log(posts);
+        
         posts.forEach((post, index) => {
-            console.log("ID", post.contentful_id);
             const previous = index === posts.length - 1 ? null : posts[index + 1].node;
             const next = index === 0 ? null : posts[index - 1].node;
 

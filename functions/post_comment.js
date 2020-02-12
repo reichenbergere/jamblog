@@ -3,6 +3,7 @@ const contentful = require("contentful-management")
 
 exports.handler = function(event, context, callback) {
     async function main() {
+        console.log(event.body)
         const data = JSON.parse(event.body);
         console.log(data);
         let postComments = [];
@@ -51,7 +52,8 @@ exports.handler = function(event, context, callback) {
                 comments: postComments
             }
             console.log("Updating entry", entry);
-            return entry.update();
+            entry.update();
+            return entry.publish();
         });
 
         callback(null, {
